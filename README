@@ -1,0 +1,5 @@
+Prerequisites:
+	- pyside (do "sudo apt-get install pyside" on ubuntu)
+	- pyusb (do "pip install pyusb" or "easy_install pyusb")
+
+To run simply do "python rticapapp.py"
