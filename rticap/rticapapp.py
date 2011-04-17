@@ -38,7 +38,7 @@ class RTICapModel:
     #######    REMEMBER TO LOCK AUTOFOCUS!!!
     #######
     
-    totalCapCount = 3
+    totalCapCount = 64
     
     def __init__(self):
         #self.cam = GCamCapture.GCamCapture()
