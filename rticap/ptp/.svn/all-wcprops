@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 25
+/svn/!svn/ver/7/trunk/ptp
+END
+PtpUsbTransport.py
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/6/trunk/ptp/PtpUsbTransport.py
+END
+NikonSupport.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/5/trunk/ptp/NikonSupport.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/3/trunk/ptp/__init__.py
+END
+PtpValues.py
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/5/trunk/ptp/PtpValues.py
+END
+PtpAbstractTransport.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/5/trunk/ptp/PtpAbstractTransport.py
+END
+PtpSession.py
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/7/trunk/ptp/PtpSession.py
+END
