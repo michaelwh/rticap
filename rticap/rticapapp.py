@@ -1,7 +1,6 @@
 import sys
 from PySide import QtGui
 import ui.gui
-import GCamCapture as GCamCapture
 import CHDKPtp
 import os
 import domecontroller
