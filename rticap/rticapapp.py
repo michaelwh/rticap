@@ -85,23 +85,23 @@ class RTICapModel:
         #domeControl = self.domeController
         #domeControl.activateAllLEDs()
         time.sleep(0.5) # allow camera to adjust to lighting
-        if isinstance(self.cam, GCamCapture.GCamCapture):
-            (camfolder, camfilename) = self.cam.capture()
-            self.cam.save_from_cam(camfolder, camfilename, "temp.jpg")
-            self.cam.delete_from_cam(camfolder, camfilename)
-        elif isinstance(self.cam, CHDKPtp.CHDKPtpCapture):
-            self.cam.activateShootingMode()
-            self.cam.disableFlash()
-            objectid = self.cam.capture()
-            self.cam.downloadAndSaveObject(objectid, "temp.jpg")
-            self.cam.deleteObject(objectid)
-        else:
-            raise Exception("self.cam is not an instance of a recognised class")
+        #if isinstance(self.cam, GCamCapture.GCamCapture):
+        #    (camfolder, camfilename) = self.cam.capture()
+        #    self.cam.save_from_cam(camfolder, camfilename, "temp.jpg")
+        #    self.cam.delete_from_cam(camfolder, camfilename)
+        #elif isinstance(self.cam, CHDKPtp.CHDKPtpCapture):
+        self.cam.activateShootingMode()
+        self.cam.disableFlash()
+        objectid = self.cam.capture()
+        self.cam.downloadAndSaveObject(objectid, "temp.jpg")
+        self.cam.deleteObject(objectid)
+	#else:
+        #    raise Exception("self.cam is not an instance of a recognised class")
         pixmap = QtGui.QPixmap("temp.jpg")
         #domeControl.resetSequenceClearLEDs()
         return pixmap
         
-    def doCaptureSequence(self, savePath, downloadAfter=True, baseLPFilePath=None, autofocus=True, captureUpdateCallback=None, downloadUpdateCallback=None):
+    def doCaptureSequence(self, savePath, downloadAfter=True, autofocus=True, captureUpdateCallback=None, downloadUpdateCallback=None):
         """captureUpdateCallback(capNo, totalCaps)
         downloadUpdateCallback(capNo, totalCaps, savePath)"""
         # find path that does not exist
@@ -137,24 +137,24 @@ class RTICapModel:
             domeControl.nextLED()
             imgpath = os.path.join(cappath, str(capno) + ".jpg")
             logging.debug("IMAGEPATH" + str(imgpath))           
-            if isinstance(self.cam, GCamCapture.GCamCapture):
-                (camfolder, camfilename) = self.cam.capture()
+            #if isinstance(self.cam, GCamCapture.GCamCapture):
+            #    (camfolder, camfilename) = self.cam.capture()
+            #    captureUpdateCallback(capno, total)
+            #    self.cam.save_from_cam(camfolder, camfilename, imgpath);
+            #    self.cam.delete_from_cam(camfolder, camfilename)
+            #    downloadUpdateCallback(capno, total, imgpath)
+            #elif isinstance(self.cam, CHDKPtp.CHDKPtpCapture):
+            objectid = self.cam.capture()
+            if captureUpdateCallback != None:
                 captureUpdateCallback(capno, total)
-                self.cam.save_from_cam(camfolder, camfilename, imgpath);
-                self.cam.delete_from_cam(camfolder, camfilename)
-                downloadUpdateCallback(capno, total, imgpath)
-            elif isinstance(self.cam, CHDKPtp.CHDKPtpCapture):
-                objectid = self.cam.capture()
-                if captureUpdateCallback != None:
-                    captureUpdateCallback(capno, total)
-                if downloadAfter:
-                    caps.append((objectid, imgpath))
-                else:
-                    self.cam.downloadAndSaveObject(objectid, imgpath)
-                    self.cam.deleteObject(objectid)
-                    downloadUpdateCallback(capno, total, imgpath)
+            if downloadAfter:
+                caps.append((objectid, imgpath))
             else:
-                raise Exception("self.cam is not an instance of a recognised class")
+                self.cam.downloadAndSaveObject(objectid, imgpath)
+                self.cam.deleteObject(objectid)
+                downloadUpdateCallback(capno, total, imgpath)
+            #else:
+            #    raise Exception("self.cam is not an instance of a recognised class")
             
                 
             #yield (imgpath, total)
@@ -175,12 +175,12 @@ class RTICapModel:
             
         logging.debug("capture sequence finished")
         
-        if baseLPFilePath != None:
-            logging.debug("generating lp file")
-            lpOutputPath = os.path.join(cappath, "lights.lp")
-            imagePaths = [imgp for objectid, imgp in caps] # list comprehension to generate a list of image paths from caps
-            lpgen.generateLPFile(baseLPFilePath, imagePaths, lpOutputPath)
-            logging.debug("lp file generated at " + lpOutputPath)
+        #if baseLPFilePath != None:
+        #    logging.debug("generating lp file")
+        #    lpOutputPath = os.path.join(cappath, "lights.lp")
+        #    imagePaths = [imgp for objectid, imgp in caps] # list comprehension to generate a list of image paths from caps
+        #    lpgen.generateLPFile(baseLPFilePath, imagePaths, lpOutputPath)
+        #    logging.debug("lp file generated at " + lpOutputPath)
         
     def getTotalCapCount(self):
         return self.totalCapCount;

@@ -10,6 +10,10 @@ Created on 15 Mar 2011
 '''
 
 def generateLPFile(baseLpFilepath, imagePaths, outputLpFilepath, seperator="\t"):
+    raise Exception("""WARNING: USING THIS IS PROBABLY A VERY BAD IDEA!! THE LP FILE GENERATION TOOLS AVAILABLE
+    MAKE LP FILES WITH THE LIGHTS IN A RANDOM ORDER!! USING THIS ASSUMES THEY ARE IN THE CORRECT ORDER""")
+
+
     lpin = open(baseLpFilepath, "r")
     # first line of the lp file should contain the number of light positions
     noLightsIn = int(lpin.readline())

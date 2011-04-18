@@ -1,0 +1,6 @@
+(dp0
+S'ImageSavePath'
+p1
+V/home/michael/Pictures/minidomecaptures/test
+p2
+s.

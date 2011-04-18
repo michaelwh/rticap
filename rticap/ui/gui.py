@@ -127,14 +127,14 @@ class CaptureConfigGUIMode:
     def doCaptureSequence(self):
         saveDir = self.captureConfigWidget.getSaveDir()
         autofocus = self.captureConfigWidget.getAttemptAutofocus()
-        if self.captureConfigWidget.getLPGenSelected():
-            baseLPFilePath = self.captureConfigWidget.getBaseLPFilePath()#
-        else:
-            baseLPFilePath = None
+        #if self.captureConfigWidget.getLPGenSelected():
+            #baseLPFilePath = self.captureConfigWidget.getBaseLPFilePath()#
+        #else:
+        #    baseLPFilePath = None
         self.config.setValue('ImageSavePath', saveDir)
         self.stackedLayout.setCurrentWidget(self.captureSequenceWidget) # switch to capture sequence
         currcapno = 1
-        self.rticapmodel.doCaptureSequence(saveDir, baseLPFilePath=baseLPFilePath, autofocus=autofocus, captureUpdateCallback=self._captureUpdateCallback, downloadUpdateCallback=self._downloadUpdateCallback)
+        self.rticapmodel.doCaptureSequence(saveDir, autofocus=autofocus, captureUpdateCallback=self._captureUpdateCallback, downloadUpdateCallback=self._downloadUpdateCallback)
         
         self.stackedLayout.setCurrentWidget(self.captureConfigWidget) # switch back to capture config
 
@@ -248,7 +248,7 @@ class CaptureConfigWidget(QtGui.QWidget):
         self.ui = Ui_CaptureConfig()
         self.ui.setupUi(self)
         self.ui.chooseDirectoryButton.clicked.connect(self._chooseDirCallback)
-        self.ui.baseLPFileBrowseButton.clicked.connect(self._baseLPFileBrowseCallback)
+        #self.ui.baseLPFileBrowseButton.clicked.connect(self._baseLPFileBrowseCallback)
     
     def setDoCaptureCallback(self, callback):
         self.ui.beginCaptureButton.clicked.connect(callback)
@@ -262,14 +262,14 @@ class CaptureConfigWidget(QtGui.QWidget):
     def getSaveDir(self):
         return self.ui.saveDirectoryLineEdit.text()
     
-    def _baseLPFileBrowseCallback(self):
-        self.ui.baseLPFileLineEdit.setText(QtGui.QFileDialog.getOpenFileName(self, "Select Base LP File"))
+    #def _baseLPFileBrowseCallback(self):
+    #    self.ui.baseLPFileLineEdit.setText(QtGui.QFileDialog.getOpenFileName(self, "Select Base LP File"))
     
-    def getLPGenSelected(self):
-        return self.ui.generateLPFileGroupBox.isChecked()
+    #def getLPGenSelected(self):
+    #    return self.ui.generateLPFileGroupBox.isChecked()
     
-    def getBaseLPFilePath(self):
-        return self.ui.baseLPFileLineEdit.text()
+    #def getBaseLPFilePath(self):
+    #    return self.ui.baseLPFileLineEdit.text()
     
     def getAttemptAutofocus(self):
         return self.ui.autofocusGroupBox.isChecked()

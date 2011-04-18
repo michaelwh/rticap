@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'connect.ui'
 #
-# Created: Wed Mar 23 19:37:31 2011
+# Created: Mon Apr 18 20:13:49 2011
 #      by: PySide uic UI code generator
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_connect(object):
     def setupUi(self, connect):
         connect.setObjectName("connect")
-        connect.resize(758, 174)
+        connect.resize(879, 426)
         self.gridLayout = QtGui.QGridLayout(connect)
         self.gridLayout.setObjectName("gridLayout")
         self.groupBox_2 = QtGui.QGroupBox(connect)
@@ -33,7 +33,7 @@ class Ui_connect(object):
         self.gridLayout_3.addItem(spacerItem1, 0, 1, 1, 1)
         self.cameraMessageLabel = QtGui.QLabel(self.groupBox_2)
         self.cameraMessageLabel.setObjectName("cameraMessageLabel")
-        self.gridLayout_3.addWidget(self.cameraMessageLabel, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.cameraMessageLabel, 2, 0, 1, 1)
         self.gridLayout.addWidget(self.groupBox_2, 0, 1, 1, 1)
         self.groupBox = QtGui.QGroupBox(connect)
         self.groupBox.setObjectName("groupBox")
