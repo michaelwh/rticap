@@ -1,5 +1,6 @@
 Prerequisites:
-	- pyside (do "sudo apt-get install pyside" on ubuntu)
-	- pyusb (do "pip install pyusb" or "easy_install pyusb")
+	- pyside (do "sudo apt-get install PySide" on ubuntu)
+	- pyusb need LEGACY pysusb version
+	- pyserial
 
 To run simply do "python rticapapp.py"

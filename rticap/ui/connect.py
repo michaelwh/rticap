@@ -66,5 +66,5 @@ class Ui_connect(object):
         self.cameraMessageLabel.setText(QtGui.QApplication.translate("connect", "Not Connected", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox.setTitle(QtGui.QApplication.translate("connect", "Lighting", None, QtGui.QApplication.UnicodeUTF8))
         self.connectToLightingButton.setText(QtGui.QApplication.translate("connect", "Connect to Lighting", None, QtGui.QApplication.UnicodeUTF8))
-        self.lightingMessageLabel.setText(QtGui.QApplication.translate("connect", "---", None, QtGui.QApplication.UnicodeUTF8))
+        self.lightingMessageLabel.setText(QtGui.QApplication.translate("connect", "Not Connected", None, QtGui.QApplication.UnicodeUTF8))
 
